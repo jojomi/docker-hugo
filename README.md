@@ -8,6 +8,7 @@ Docker image for hugo static page generator (https://gohugo.io)
 * `HUGO_THEME`
 * `HUGO_WATCH` (set to any value to enable watching)
 * `HUGO_REFRESH_TIME` (in seconds, only applies if not watching, if not set, the container will build once and exit)
+* `HUGO_BASEURL`
 
 
 ## Executing

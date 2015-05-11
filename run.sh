@@ -5,14 +5,15 @@ SLEEP="${HUGO_REFRESH_TIME:=-1}"
 echo "HUGO_WATCH:" $WATCH
 echo "HUGO_REFRESH_TIME:" $HUGO_REFRESH_TIME
 echo "HUGO_THEME:" $HUGO_THEME
+echo "HUGO_BASEURL" $HUGO_BASEURL
 
 
 while [ true ]
 do
     if [[ $HUGO_WATCH != 'false' ]]; then
-        /bin/hugo server --watch=true --source="/src" --theme="$HUGO_THEME" --destination="/output" || exit 1
+        /bin/hugo server --watch=true --source="/src" --theme="$HUGO_THEME" --destination="/output" --baseUrl="$HUGO_BASEURL" || exit 1
     else
-        /bin/hugo --source="/src" --theme="$HUGO_THEME" --destination="/output" || exit 1
+        /bin/hugo --source="/src" --theme="$HUGO_THEME" --destination="/output" --baseUrl="$HUGO_BASEURL" || exit 1
     fi
 
     if [[ $HUGO_REFRESH_TIME == -1 ]]; then
