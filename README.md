@@ -34,13 +34,4 @@ The image is conveniently small at **about 20 MB** thanks to [alpine](http://gli
 
 ## Creating a new tag
 
-```
-export HUGO_RELEASE=0.14
-# export HUGO_RELEASE=git
-git checkout master
-git checkout -b $HUGO_RELEASE
-./update.sh $HUGO_RELEASE
-git add .
-git commit -m "version $HUGO_RELEASE"
-git push -u origin $HUGO_RELEASE
-```
+Create a new git branch, change the line `ENV HUGO_VERSION=0.14` in `Dockerfile` and wire it in the Docker Hub accordingly.
