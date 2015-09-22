@@ -35,3 +35,49 @@ The image is conveniently small at **about 20 MB** thanks to [alpine](http://gli
 ## Creating a new tag
 
 Create a new git branch, change the line `ENV HUGO_VERSION=0.14` in `Dockerfile` and wire it in the Docker Hub accordingly.
+
+
+## docker-compose
+
+Using this docker image together with nginx for serving static data.
+
+`docker-compose.yml`
+
+```
+hugo:
+  image: jojomi/hugo:0.14
+  volumes:
+    - ./src/:/src
+    - ./output/:/output
+  environment:
+    - HUGO_REFRESH_TIME=3600
+    - HUGO_THEME=strolche
+    - HUGO_BASEURL=mydomain.com
+  restart: always
+
+web:
+  image: jojomi/nginx-static
+  volumes:
+    - ./output:/var/www
+  environment:
+    - VIRTUAL_HOST=mydomain.com
+  ports:
+    - 80
+  restart: always
+```
+
+`VIRTUAL_HOST` is set for use with jwilder's `nginx-proxy`:
+
+`docker-compose.yml`
+
+```
+proxy:
+  image: jwilder/nginx-proxy
+  ports:
+    - 80:80
+    - 443:443
+  volumes:
+    - /var/run/docker.sock:/tmp/docker.sock
+    - vhost.d:/etc/nginx/vhost.d:ro
+  restart: always
+```
