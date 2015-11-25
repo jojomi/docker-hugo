@@ -1,7 +1,7 @@
 FROM gliderlabs/alpine:latest
 MAINTAINER Johannes Mitlmeier <dev.jojomi@yahoo.com>
 
-ENV HUGO_VERSION=0.14
+ENV HUGO_VERSION=0.15
 RUN apk add --update wget ca-certificates && \
   wget https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux_amd64.tar.gz && \
   tar xzf hugo_${HUGO_VERSION}_linux_amd64.tar.gz && \
