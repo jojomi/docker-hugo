@@ -29,12 +29,12 @@ Find your container:
 The image is conveniently small at **about 20 MB** thanks to [alpine](http://gliderlabs.viewdocs.io/docker-alpine):
 
     docker images | grep hugo
-    jojomi/hugo   latest              b2e7a8364baa        1 second ago      20.7 MB
+    jojomi/hugo:0.15   latest              b2e7a8364baa        1 second ago      21.87 MB
 
 
 ## Creating a new tag
 
-Create a new git branch, change the line `ENV HUGO_VERSION=0.14` in `Dockerfile` and wire it in the Docker Hub accordingly.
+Create a new git branch, change the line `ENV HUGO_VERSION=0.15` in `Dockerfile` and wire it in the Docker Hub accordingly.
 
 
 ## docker-compose
@@ -45,13 +45,13 @@ Using this docker image together with nginx for serving static data.
 
 ```
 hugo:
-  image: jojomi/hugo:0.14
+  image: jojomi/hugo:latest
   volumes:
     - ./src/:/src
     - ./output/:/output
   environment:
     - HUGO_REFRESH_TIME=3600
-    - HUGO_THEME=strolche
+    - HUGO_THEME=mytheme
     - HUGO_BASEURL=mydomain.com
   restart: always
 
