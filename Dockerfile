@@ -1,7 +1,7 @@
 FROM alpine:latest
 MAINTAINER Johannes Mitlmeier <dev.jojomi@yahoo.com>
 
-ENV HUGO_VERSION=0.15
+ENV HUGO_VERSION=0.16
 RUN apk add --update wget ca-certificates && \
   wget https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux_amd64.tar.gz && \
   tar xzf hugo_${HUGO_VERSION}_linux_amd64.tar.gz && \
