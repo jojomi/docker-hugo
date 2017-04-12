@@ -15,6 +15,13 @@ Docker image for hugo static page generator (https://gohugo.io)
 
     docker run --name "my-hugo" -P -v $(pwd):/src jojomi/hugo
 
+Or, more verbosely, and with a specified output mapping:
+
+    docker run --name "my-hugo" --publish-all \
+           --volume $(pwd):/src \
+           --volume /tmp/hugo-build-output:/output \
+           jojomi/hugo
+
 Find your container:
 
     docker ps | grep "my-hugo"
