@@ -8,7 +8,7 @@ echo "HUGO_THEME:" $HUGO_THEME
 echo "HUGO_BASEURL" $HUGO_BASEURL
 echo "ARGS" $@
 
-HUGO=/usr/bin/hugo
+HUGO=/usr/local/sbin/hugo
 
 while [ true ]
 do
