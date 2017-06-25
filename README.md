@@ -89,3 +89,8 @@ proxy:
     - vhost.d:/etc/nginx/vhost.d:ro
   restart: always
 ```
+
+
+## Update Image on Hugo Update
+
+```./update.sh 0.25```
