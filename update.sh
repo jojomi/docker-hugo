@@ -7,7 +7,7 @@ PORT=1313
 NAME=test-hugo
 
 # set version in Dockerfile
-sed "s/HUGO_VERSION=[0-9.]\+/HUGO_VERSION=$VERSION/g" Dockerfile
+sed -i "s/HUGO_VERSION=[0-9.]\+/HUGO_VERSION=$VERSION/g" Dockerfile
 
 # cleanup container
 docker stop "$NAME"
