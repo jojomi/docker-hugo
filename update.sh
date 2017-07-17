@@ -34,7 +34,7 @@ docker run \
 docker ps | grep "$NAME"
 
 # verify output
-xdg-open http://localhost:$PORT
+xdg-open http://localhost:$PORT > /dev/null
 
 # ask for continuation
 read -r -p "Does it work? [y/N] " prompt
@@ -49,6 +49,6 @@ then
   # git: commit, tag, push
   git add Dockerfile && git commit -m "version $VERSION" && git tag $VERSION && git push && git push --tags
   # open hub.docker.com
-  xdg-open https://hub.docker.com/r/jojomi/hugo/builds/
-  xdg-open https://hub.docker.com/r/jojomi/hugo/~/settings/automated-builds/
+  xdg-open https://hub.docker.com/r/jojomi/hugo/builds/ > /dev/null
+  xdg-open https://hub.docker.com/r/jojomi/hugo/~/settings/automated-builds/ > /dev/null
 fi
