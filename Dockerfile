@@ -9,7 +9,7 @@ RUN tar -xf /tmp/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz -C /tmp \
     && mv /tmp/hugo /usr/local/sbin/hugo \
     && rm -rf /tmp/hugo_${HUGO_VERSION}_linux_amd64
 
-RUN apk update \
+RUN apk add --update git \
     && apk upgrade \
     && apk add --no-cache ca-certificates
 
