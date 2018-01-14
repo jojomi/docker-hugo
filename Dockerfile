@@ -1,5 +1,8 @@
 FROM alpine:latest
-MAINTAINER Johannes Mitlmeier <dev.jojomi@yahoo.com>
+
+# Container metadata describing the image and its maintainer.
+LABEL description="Docker container for building static sites with the Hugo static site generator."
+LABEL maintainer="Johannes Mitlmeier <dev.jojomi@yahoo.com>"
 
 COPY ./run.sh /run.sh
 ENV HUGO_VERSION=0.32.4
