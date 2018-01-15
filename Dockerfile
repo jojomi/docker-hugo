@@ -7,7 +7,7 @@ ADD https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${H
 RUN tar -xf /tmp/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz -C /tmp \
     && mkdir -p /usr/local/sbin \
     && mv /tmp/hugo /usr/local/sbin/hugo \
-    && rm -rf /tmp/hugo_${HUGO_VERSION}_linux_amd64
+    && rm -rf /tmp/hugo_*
 
 RUN apk add --update git \
     && apk upgrade \
