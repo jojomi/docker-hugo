@@ -11,7 +11,9 @@ RUN tar -xf /tmp/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz -C /tmp \
     && mkdir -p /usr/local/sbin \
     && mv /tmp/hugo /usr/local/sbin/hugo \
     && rm -rf /tmp/hugo_${HUGO_VERSION}_linux_amd64 \
-    && rm -rf hugo_${HUGO_VERSION}_Linux-64bit.tar.gz
+    && rm -rf /tmp/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz \
+    && rm -rf /tmp/LICENSE.md \
+    && rm -rf /tmp/README.md
 
 RUN apk add --update git \
     && apk upgrade \
