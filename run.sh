@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 
 WATCH="${HUGO_WATCH:=false}"
@@ -36,7 +36,7 @@ fi
 
 while :
 do
-    if test "$HUGO_WATCH" = 'false' ; then
+    if test "$HUGO_WATCH" = 'true' ; then
 	echo "Watching..."
 	echo "$HUGO server --watch=true --source="/src" --theme="$HUGO_THEME" --destination="$HUGO_DESTINATION" --baseURL="$HUGO_BASEURL" --bind="$HUGO_IP" "$@" || exit 1"
         $HUGO server --watch=true --source="/src" --theme="$HUGO_THEME" --destination="$HUGO_DESTINATION" --baseURL="$HUGO_BASEURL" --bind="$HUGO_IP" "$@" || exit 1

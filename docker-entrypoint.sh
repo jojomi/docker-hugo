@@ -49,4 +49,5 @@ echo "Giving permissions on /src, /output (bind mounted) to $TARGETUSER"
 chown $TARGETUSER /src /output -Rv
 
 #Finally execute the actual target
+echo "/run.sh" "$@"
 exec sudo -E -u $TARGETUSER  "/run.sh" "$@"
