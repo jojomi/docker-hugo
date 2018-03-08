@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 WATCH="${HUGO_WATCH:=false}"
 SLEEP="${HUGO_REFRESH_TIME:=-1}"
