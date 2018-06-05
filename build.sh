@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t jojomi/hugo .
+docker build -t tvs/hugo .
