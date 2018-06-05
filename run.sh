@@ -12,16 +12,14 @@ echo "ARGS" $@
 HUGO=/usr/local/sbin/hugo
 echo "Hugo path: $HUGO"
 
-arguments=(
-  --source="$HUGO_SRC"
-  --destination="$HUGO_DESTINATION"
-  --baseURL="$HUGO_BASEURL"
-  --cleanDestinationDir
-)
+arguments="--source=$HUGO_SRC"
+arguments="$arguments --destination=$HUGO_DESTINATION"
+arguments="$arguments --baseURL=$HUGO_BASEURL"
+arguments="$arguments --cleanDestinationDir"
 
 if [[ $HUGO_WATCH != 'false' ]]; then
-  arguments+=('--watch')
+  arguments="$arguments --watch"
 fi
 
-$HUGO "${arguments[@]}" "$@" || exit 1
+$HUGO $arguments "$@" || exit 1
 exit 0
