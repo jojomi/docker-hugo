@@ -5,12 +5,10 @@ Docker image for hugo static page generator (https://gohugo.io)
 
 ## Environment Variables
 
-* `HUGO_THEME`
 * `HUGO_WATCH` (set to any value to enable watching)
 * `HUGO_SRC` (Path where hugo will search for the site. By default `/src`)
 * `HUGO_DESTINATION` (Path where hugo will render the site. By default `/output`)
 * `HUGO_REFRESH_TIME` (in seconds, only applies if not watching, if not set, the container will build once and exit)
-* `HUGO_BASEURL`
 * `HUGO_APPEND_PORT`
 
 
@@ -62,8 +60,6 @@ hugo:
     - ./output/:/output
   environment:
     - HUGO_REFRESH_TIME=3600
-    - HUGO_THEME=mytheme
-    - HUGO_BASEURL=mydomain.com
   restart: always
 
 web:

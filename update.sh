@@ -15,10 +15,10 @@ docker rm "$NAME"
 rm -rf test-output
 
 # build image
-docker build --no-cache=true --pull --tag jojomi/hugo:latest .
+docker build --no-cache=true --pull --tag thall/hugo:latest .
 
 # verify image build
-docker images | grep jojomi/hugo | grep latest
+docker images | grep thall/hugo | grep latest
 
 # run container
 mkdir --parents test-output
@@ -30,7 +30,7 @@ docker run \
   --volume "$(pwd)/test-output:/output" \
   --publish "$PORT:1313" \
   --detach \
-  jojomi/hugo:latest
+  thall/hugo:latest
 docker ps | grep "$NAME"
 
 # verify output
@@ -49,8 +49,8 @@ then
   # git: commit, tag, push
   git add Dockerfile && git commit -m "version $VERSION" && git tag $VERSION && git push && git push --tags
   # open hub.docker.com
-  xdg-open https://hub.docker.com/r/jojomi/hugo/builds/ > /dev/null
-  xdg-open https://hub.docker.com/r/jojomi/hugo/~/settings/automated-builds/ > /dev/null
+  xdg-open https://hub.docker.com/r/thall/hugo/builds/ > /dev/null
+  xdg-open https://hub.docker.com/r/thall/hugo/~/settings/automated-builds/ > /dev/null
 fi
 
 
