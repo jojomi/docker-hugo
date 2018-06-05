@@ -11,34 +11,35 @@ Docker image for hugo static page generator (https://gohugo.io)
 * `HUGO_DESTINATION` (Path where hugo will render the site. By default `/output`)
 * `HUGO_REFRESH_TIME` (in seconds, only applies if not watching, if not set, the container will build once and exit)
 * `HUGO_BASEURL`
+* `HUGO_APPEND_PORT`
 
 
 ## Executing
 
-    docker run --name "my-hugo" -P -v $(pwd):/src jojomi/hugo
+    docker run --name "my-hugo" -P -v $(pwd):/src thall/hugo
 
 Or, more verbosely, and with a specified output mapping:
 
     docker run --name "my-hugo" --publish-all \
            --volume $(pwd):/src \
            --volume /tmp/hugo-build-output:/output \
-           jojomi/hugo
+           thall/hugo
 
 Find your container:
 
     docker ps | grep "my-hugo"
     CONTAINER ID        IMAGE                           COMMAND                CREATED             STATUS              PORTS                   NAMES
-    ba00b5c238fc        jojomi/hugo:latest   "/run.sh"              7 seconds ago       Up 6 seconds        1313/tcp      my-hugo
+    ba00b5c238fc        thall/hugo:latest   "/run.sh"              7 seconds ago       Up 6 seconds        1313/tcp      my-hugo
 
 
 ## Building The Image Yourself (optional)
 
-    docker build -t jojomi/hugo:latest .
+    docker build -t thall/hugo:latest .
 
 The image is conveniently small at **about 20 MB** thanks to [alpine](http://gliderlabs.viewdocs.io/docker-alpine):
 
     docker images | grep hugo
-    jojomi/hugo:0.18   latest              b2e7a8364baa        1 second ago      21.9 MB
+    thall/hugo:0.18   latest              b2e7a8364baa        1 second ago      21.9 MB
 
 
 
@@ -55,7 +56,7 @@ Using this docker image together with nginx for serving static data.
 
 ```
 hugo:
-  image: jojomi/hugo:latest
+  image: thall/hugo:latest
   volumes:
     - ./src/:/src
     - ./output/:/output
@@ -66,7 +67,7 @@ hugo:
   restart: always
 
 web:
-  image: jojomi/nginx-static
+  image: thall/nginx-static
   volumes:
     - ./output:/var/www
   environment:
