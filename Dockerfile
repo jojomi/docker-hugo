@@ -5,7 +5,7 @@ LABEL description="Docker container for building static sites with the Hugo stat
 LABEL maintainer="Johannes Mitlmeier <dev.jojomi@yahoo.com>"
 
 COPY ./run.sh /run.sh
-ENV HUGO_VERSION=0.41
+ENV HUGO_VERSION=0.42
 ADD https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz /tmp
 RUN tar -xf /tmp/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz -C /tmp \
     && mkdir -p /usr/local/sbin \
