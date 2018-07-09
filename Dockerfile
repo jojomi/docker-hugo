@@ -4,9 +4,13 @@ FROM alpine:3.7@sha256:5ce5f501c457015c4b91f91a15ac69157d9b06f1a75cf9107bf2b62e0
 LABEL description="Docker container for building static sites with the Hugo static site generator."
 LABEL maintainer="Johannes Mitlmeier <dev.jojomi@yahoo.com>"
 
-COPY ./run.sh /run.sh
+# config
 ENV HUGO_VERSION=0.43
-ADD https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz /tmp
+ENV HUGO_TYPE=_extended
+# without SCSS/SASS support: ENV HUGO_TYPE=
+
+COPY ./run.sh /run.sh
+ADD https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo${HUGO_TYPE}_${HUGO_VERSION}_Linux-64bit.tar.gz /tmp
 RUN tar -xf /tmp/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz -C /tmp \
     && mkdir -p /usr/local/sbin \
     && mv /tmp/hugo /usr/local/sbin/hugo \
