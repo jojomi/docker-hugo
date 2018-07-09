@@ -7,6 +7,8 @@ LABEL maintainer="Johannes Mitlmeier <dev.jojomi@yahoo.com>"
 COPY ./run.sh /run.sh
 ENV HUGO_VERSION=0.42.1
 ADD https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz /tmp
+#Pick a suitably high GID for sudo group. 
+RUN addgroup sudo -g 4001 
 RUN tar -xf /tmp/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz -C /tmp \
     && mkdir -p /usr/local/sbin \
     && mv /tmp/hugo /usr/local/sbin/hugo \
@@ -17,7 +19,8 @@ RUN tar -xf /tmp/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz -C /tmp \
 
 RUN apk add --update git \
     && apk upgrade \
-    && apk add --no-cache ca-certificates
+    && apk add --no-cache ca-certificates \
+    && apk add sudo
 
 VOLUME /src
 VOLUME /output
@@ -25,6 +28,7 @@ VOLUME /output
 RUN chmod 0777 /run.sh && ls -lahr / && whoami && cat /run.sh && which sh
 
 WORKDIR /src
-CMD ["/run.sh"]
+COPY ./docker-entrypoint.sh /
+ENTRYPOINT ["/docker-entrypoint.sh"]
 
 EXPOSE 1313

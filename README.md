@@ -10,17 +10,19 @@ Docker image for hugo static page generator (https://gohugo.io)
 * `HUGO_DESTINATION` (Path where hugo will render the site. By default `/output`)
 * `HUGO_REFRESH_TIME` (in seconds, only applies if not watching, if not set, the container will build once and exit)
 * `HUGO_BASEURL`
+* `HUGO_NEW` (true for a new install)
 
 
 ## Executing
 
-    docker run --name "my-hugo" -P -v $(pwd):/src jojomi/hugo
+    docker run --name "my-hugo" -P -v $(mktemp):/myuser -v $(pwd):/src jojomi/hugo
 
 Or, more verbosely, and with a specified output mapping:
 
     docker run --name "my-hugo" --publish-all \
            --volume $(pwd):/src \
            --volume /tmp/hugo-build-output:/output \
+	   --volume $(mktemp):/myuser
            jojomi/hugo
 
 Find your container:
