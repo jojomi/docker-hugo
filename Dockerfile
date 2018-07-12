@@ -6,8 +6,9 @@ LABEL maintainer="Johannes Mitlmeier <dev.jojomi@yahoo.com>"
 
 # config
 ENV HUGO_VERSION=0.43
-ENV HUGO_TYPE=_extended
-# without SCSS/SASS support: ENV HUGO_TYPE=
+# without SCSS/SASS support
+ENV HUGO_TYPE=
+#ENV HUGO_TYPE=_extended
 
 COPY ./run.sh /run.sh
 ENV HUGO_ID=hugo${HUGO_TYPE}_${HUGO_VERSION}
