@@ -21,7 +21,7 @@ RUN tar -xf /tmp/${HUGO_ID}_Linux-64bit.tar.gz -C /tmp \
     && rm -rf /tmp/LICENSE.md \
     && rm -rf /tmp/README.md
 
-RUN apk add --update git \
+RUN apk add --update git asciidoctor \
     && apk upgrade \
     && apk add --no-cache ca-certificates \
     && chmod 0777 /run.sh
