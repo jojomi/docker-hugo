@@ -6,9 +6,8 @@ LABEL maintainer="Johannes Mitlmeier <dev.jojomi@yahoo.com>"
 
 # config
 ENV HUGO_VERSION=0.49
-# without SCSS/SASS support
-ENV HUGO_TYPE=
-#ENV HUGO_TYPE=_extended
+#ENV HUGO_TYPE=
+ENV HUGO_TYPE=_extended
 
 COPY ./run.sh /run.sh
 ENV HUGO_ID=hugo${HUGO_TYPE}_${HUGO_VERSION}
@@ -21,7 +20,7 @@ RUN tar -xf /tmp/${HUGO_ID}_Linux-64bit.tar.gz -C /tmp \
     && rm -rf /tmp/LICENSE.md \
     && rm -rf /tmp/README.md
 
-RUN apk add --update git asciidoctor \
+RUN apk add --update git asciidoctor libc6-compat libstdc++ \
     && apk upgrade \
     && apk add --no-cache ca-certificates \
     && chmod 0777 /run.sh
