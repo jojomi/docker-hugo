@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="de">
   <head>
-    {{ template "theme/chrome/meta.html" . }}
-    {{ template "theme/chrome/includes.html" . }}
+    {{ template "chrome/meta.html" . }}
+    {{ template "chrome/includes.html" . }}
     <link rel="shortcut icon" href="/images/alexfinn.ico">
     <link rel="apple-touch-icon" href="">
     <link rel="canonical" href="{{ .Permalink }}">
@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    {{ template "theme/chrome/menu.html" }}
+    {{ template "chrome/menu.html" }}
 
 {{ $baseurl := .Site.BaseURL }}
 
