@@ -1,5 +1,6 @@
 
     <link href="/css/milk.min.css" rel="stylesheet">
     <link href="/css/milk-responsive.min.css" rel="stylesheet">     
-    <link href="/css/style.css" rel="stylesheet" type="text/css" media="all">
+    {{ $style := resources.Get "style.scss" | toCSS }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}">
     <link href="/css/fonts.css" rel="stylesheet" type="text/css" media="all">
