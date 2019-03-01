@@ -2,6 +2,8 @@
 
 Docker image for hugo static page generator (https://gohugo.io)
 
+HEY THIS IS A THING FRIEND
+
 
 ## Environment Variables
 
