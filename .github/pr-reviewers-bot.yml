@@ -1,0 +1,3 @@
+min_reviewers_per_pr: 1
+team:
+  - tvs
