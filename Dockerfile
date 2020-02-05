@@ -6,7 +6,6 @@ LABEL maintainer="Johannes Mitlmeier <dev.jojomi@yahoo.com>"
 
 # config
 ENV HUGO_VERSION=0.63.1
-#ENV HUGO_TYPE=
 ENV HUGO_TYPE=_extended
 
 COPY ./run.sh /run.sh
