@@ -5,7 +5,7 @@ LABEL description="Docker container for building static sites with the Hugo stat
 LABEL maintainer="Johannes Mitlmeier <dev.jojomi@yahoo.com>"
 
 # config
-ENV HUGO_VERSION=0.68.2
+ENV HUGO_VERSION=0.68.3
 #ENV HUGO_TYPE=
 ENV HUGO_TYPE=_extended
 
