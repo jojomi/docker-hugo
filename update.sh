@@ -10,7 +10,7 @@ NAME=test-hugo
 OUTPUT="${OUTPUT:-"$(mktemp)"}"
 
 # set version in Dockerfile
-sed -i "s/HUGO_VERSION=[0-9.]\+/HUGO_VERSION=$VERSION/g" Dockerfile
+sed -i "s/^ENV HUGO_VERSION.*/ENV HUGO_VERSION=$VERSION/" Dockerfile
 
 # cleanup container
 docker stop "$NAME"
@@ -53,9 +53,12 @@ rm -rf "$OUTPUT"
 
 if [[ $prompt =~ ^[yY] ]]
 then
+  # https://stackoverflow.com/questions/25984310/how-to-see-remote-tags
   # git: commit, tag, push
   git add Dockerfile && \
-    git commit -m "version $VERSION" && git tag "$VERSION" && git push && git push --tags
+    git commit -m "version $VERSION" && \
+    git tag -f "$VERSION" -a -m "Version $VERSION" && \
+    git push --follow-tags
   # open hub.docker.com
   "$OPEN" "https://hub.docker.com/r/$DOCKER_ORG/hugo/builds/" > /dev/null
   "$OPEN" "https://hub.docker.com/r/$DOCKER_ORG/hugo/~/settings/automated-builds/" > /dev/null
