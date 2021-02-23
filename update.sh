@@ -60,6 +60,7 @@ then
     git tag -f "$VERSION" -a -m "Version $VERSION" && \
     git push --follow-tags
   # open hub.docker.com
-  "$OPEN" "https://hub.docker.com/r/$DOCKER_ORG/hugo/builds/" > /dev/null
-  "$OPEN" "https://hub.docker.com/repository/docker/$DOCKER_ORG/hugo" /dev/null
+  #"$OPEN" "https://hub.docker.com/r/$DOCKER_ORG/hugo/builds/" > /dev/null
+  #"$OPEN" "https://hub.docker.com/repository/docker/$DOCKER_ORG/hugo" > /dev/null
+  "$OPEN" "https://hub.docker.com/repository/registry-1.docker.io/$DOCKER_ORG/hugo/builds" >/dev/null
 fi
