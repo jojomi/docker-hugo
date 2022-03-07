@@ -1,5 +1,5 @@
 # Use Alpine Linux as our base image so that we minimize the overall size our final container, and minimize the surface area of packages that could be out of date.
-FROM alpine:3.14@sha256:e1c082e3d3c45cccac829840a25941e679c25d438cc8412c2fa221cf1a824e6a
+FROM alpine:3.14@sha256:635f0aa53d99017b38d1a0aa5b2082f7812b03e3cdb299103fe77b5c8a07f1d2
 
 LABEL description="Docker container for building static sites with the Hugo static site generator."
 LABEL maintainer="Johannes Mitlmeier <dev.jojomi@yahoo.com>"
